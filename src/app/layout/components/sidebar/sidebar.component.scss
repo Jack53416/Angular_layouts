@@ -3,6 +3,6 @@
   flex-wrap: wrap;
 }
 
-div ::ng-deep > * {
+:host > * ::ng-deep > * ::ng-deep {
   flex-grow: 1;
 }

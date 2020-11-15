@@ -1,11 +1,11 @@
-import {Component, HostBinding, Input, OnChanges, OnInit, Renderer2, SimpleChanges} from '@angular/core';
+import {Component, ElementRef, HostBinding, Input, OnChanges, Renderer2, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'layout-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
-export class SidebarComponent implements OnInit, OnChanges {
+export class SidebarComponent implements OnChanges {
   @HostBinding('attr.data-id') protected dataId: string;
 
   @Input() sideWidth = '10rem';
@@ -19,10 +19,34 @@ export class SidebarComponent implements OnInit, OnChanges {
 
   private adjustedSpace = '0px';
 
-  constructor(private renderer: Renderer2) {
+  constructor(private renderer: Renderer2, private element: ElementRef) {
+  }
+
+  private get nativeElement(): HTMLElement {
+    return this.element.nativeElement;
+  }
+
+  private validate(): void {
+    if (!this.contentMin.includes('%')) {
+      console.warn('The value for each <layout-sidebar> `contentMin` property should be a percentage. ' +
+        'Otherwise overflow is likely to occur');
+    }
+
+    const mainContent = this.nativeElement.querySelectorAll('div > [sidebarMainContent]');
+    const sideContent = this.nativeElement.querySelectorAll('div > [sidebarSideContent]');
+
+    if (mainContent.length !== 1) {
+      console.error(`<layout-sidebar> should always have exactly one [sidebarMainContent] element.` +
+        ` Currently has ${mainContent.length}`);
+    }
+    if (sideContent.length !== 1) {
+      console.error(`<layout-sidebar> should always have exactly one [sidebarSideContent] element.` +
+        ` Currently has ${sideContent.length}`);
+    }
   }
 
   private render(): void {
+    this.validate();
     this.dataId = `Sidebar-${[this.sideWidth, this.contentMin, this.space].join('')}`;
     if (document.getElementById(this.dataId)) {
       return;
@@ -46,9 +70,6 @@ export class SidebarComponent implements OnInit, OnChanges {
           }
         `.replace(/\s\s+/g, ' ').trim();
     this.renderer.appendChild(document.head, styleEl);
-  }
-
-  ngOnInit(): void {
   }
 
   ngOnChanges(changes: SimpleChanges): void {

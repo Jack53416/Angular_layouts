@@ -1,10 +1,17 @@
-<layout-sidebar sideWidth="15rem" space="1.5rem">
-  <layout-stack space="1.5rem" sidebarSideContent>
+<layout-sidebar sideWidth="30rem" space="1.5rem">
+  <layout-stack space="1.5rem" sidebarSideContent [splitAfter]="2">
     <div></div>
     <div></div>
     <div></div>
   </layout-stack>
-  <div sidebarMainContent></div>
+  <layout-sidebar sideWidth="50rem" space="1.5rem" sidebarMainContent>
+    <layout-stack space="1.5rem" sidebarSideContent [splitAfter]="2">
+      <div></div>
+      <div></div>
+      <div></div>
+    </layout-stack>
+    <div sidebarMainContent></div>
+  </layout-sidebar>
 </layout-sidebar>
 
 <router-outlet></router-outlet>

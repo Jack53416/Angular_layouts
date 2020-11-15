@@ -32,8 +32,8 @@ export class SidebarComponent implements OnChanges {
         'Otherwise overflow is likely to occur');
     }
 
-    const mainContent = this.nativeElement.querySelectorAll('div > [sidebarMainContent]');
-    const sideContent = this.nativeElement.querySelectorAll('div > [sidebarSideContent]');
+    const mainContent = this.nativeElement.querySelectorAll(':scope > div > [sidebarMainContent]');
+    const sideContent = this.nativeElement.querySelectorAll(':scope > div > [sidebarSideContent]');
 
     if (mainContent.length !== 1) {
       console.error(`<layout-sidebar> should always have exactly one [sidebarMainContent] element.` +

@@ -39,7 +39,7 @@ export class SidebarComponent implements OnInit, OnChanges {
             ${this.sideWidth ? `flex-basis: ${this.sideWidth};` : ''}
           }
 
-          [data-id="${this.dataId}"] > * > [data-mainContent] {
+          [data-id="${this.dataId}"] > * > [sidebarMainContent] {
             flex-basis: 0;
             flex-grow: 999;
             min-width: calc(${this.contentMin} - ${this.adjustedSpace});

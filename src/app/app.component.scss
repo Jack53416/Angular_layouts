@@ -1,0 +1,11 @@
+div {
+  min-height: 300px;
+}
+
+layout-stack > * {
+  background-color: red;
+}
+
+div[data-mainContent] {
+  background-color: blue;
+}

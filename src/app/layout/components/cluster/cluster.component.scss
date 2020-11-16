@@ -1,0 +1,16 @@
+:host {
+  --space: 1rem;
+  overflow: hidden;
+}
+
+:host ::ng-deep > * {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: calc(var(--space) / 2 * -1)
+}
+
+:host ::ng-deep > * ::ng-deep > * {
+  margin: calc(var(--space) / 2);
+}

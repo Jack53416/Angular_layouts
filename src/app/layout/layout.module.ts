@@ -6,10 +6,11 @@ import { SidebarMainContentDirective } from './components/sidebar/sidebar-main-c
 import { SidebarSideContentDirective } from './components/sidebar/sidebar-side-content.directive';
 import { CoverComponent } from './components/cover/cover.component';
 import { CenterComponent } from './components/center/center.component';
+import { ClusterComponent } from './components/cluster/cluster.component';
 
 
 @NgModule({
-  declarations: [SidebarComponent, StackComponent, SidebarMainContentDirective, SidebarSideContentDirective, CoverComponent, CenterComponent],
+  declarations: [SidebarComponent, StackComponent, SidebarMainContentDirective, SidebarSideContentDirective, CoverComponent, CenterComponent, ClusterComponent],
   imports: [
     CommonModule,
   ],
@@ -20,6 +21,7 @@ import { CenterComponent } from './components/center/center.component';
     SidebarSideContentDirective,
     CoverComponent,
     CenterComponent,
+    ClusterComponent,
   ],
 })
 export class LayoutModule {

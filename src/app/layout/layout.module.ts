@@ -4,10 +4,11 @@ import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {StackComponent} from './components/stack/stack.component';
 import { SidebarMainContentDirective } from './components/sidebar/sidebar-main-content.directive';
 import { SidebarSideContentDirective } from './components/sidebar/sidebar-side-content.directive';
+import { CoverComponent } from './components/cover/cover.component';
 
 
 @NgModule({
-  declarations: [SidebarComponent, StackComponent, SidebarMainContentDirective, SidebarSideContentDirective],
+  declarations: [SidebarComponent, StackComponent, SidebarMainContentDirective, SidebarSideContentDirective, CoverComponent],
   imports: [
     CommonModule,
   ],
@@ -16,6 +17,7 @@ import { SidebarSideContentDirective } from './components/sidebar/sidebar-side-c
     StackComponent,
     SidebarMainContentDirective,
     SidebarSideContentDirective,
+    CoverComponent,
   ],
 })
 export class LayoutModule {
